@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+          background: url(https://wallpapercave.com/wp/wp3493599.jpg);
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transform-style: preserve-3d;
+            box-shadow: 100px blue;
+            animation: scaleup 10s linear none;
+            
+        }
+        .planet{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 300px;
+    background:url("https://textures.forrest.cz/textures/library/maps/Jupiter.jpg");
+    border-radius: 50%;
+    background-size:cover;
+    background-repeat: repeat-x;
+    box-shadow: inset 50px 0 10px rgba(0, 0, 0, 0.541), 0 0 30px rgb(255, 255, 255);
+    animation: rotation 55s  linear infinite ;}
+          
+            
+        
+        @keyframes scaleup {
+            0%{
+                transform: scale(0.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+            
+        }
+        @keyframes rotation {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: -1280px 0;
+            }
+        }
+        div{ display:flex;
+            
+            flex-direction: column;
+            height: 50%;
+            width: 300px;
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            animation: opmy 2s linear none;
+             }
+             h1{
+                color: whitesmoke;
+                text-shadow:white 2px 3px 4px;
+                --glow-color : whitesmoke;
+             }
+             p{
+                color: whitesmoke;
+                text-shadow:white 2px 3px 4px;
+                --glow-color : whitesmoke;
+                font-size: larger;
+             }
+             @keyframes opmy {
+            0%{
+                opacity: 0;
+                transform: translate(-20px,0px);
+            }100%{
+                opacity: 1;
+            }}
+            button{
+            height: 30px;
+            width: 80px;
+            color:cyan;
+            background-color: whitesmoke;
+            border: 2px solid black;
+            border-radius: 20px;
+            text-shadow:0 0 10px black ;
+
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: gray;
+            transform: scale(1.1);
+            
+
+        }
+        button:active{
+            transform: scale(0.92);
+        }
+        footer{
+            position:fixed;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content:center ;
+            align-items: center;
+            
+
+            
+        }
+        @media screen and  (orientation: portrait){
+            .aboutPlanet{ 
+                display:flex;
+            
+            flex-direction: column;
+            height: 50%;
+            width: 90%;
+            position: absolute;
+            top: 1%;
+            left: 5%;
+            animation: opmy 2s linear none;
+
+            }
+            h1{
+                font-size: x-large;
+            }
+            p{
+                font-size: 15px;
+            }
+            .btn{
+                width: 10%;
+            }
+        }
+
+    </style>
+    <title>Jupiter</title>
+</head>
+<body>
+    <section>
+        <div class="planet"></div></section>
+        <div class="aboutPlanet"><h1>JUPITER</h1><br>
+            <p id="textContent">
+               
+            </p>
+            <button type="button" class="btn" id="btn" onclick="speech()"><img style="width: 30%;" class="speechbutton" src="https://cdn-icons-png.flaticon.com/512/26/26706.png" alt=""></button></div>
+            
+            <script>
+                 let textTag=document.getElementById("textContent");
+                let textCtnt =` Fifth in line from the Sun, Jupiter is, by far, the largest planet in the solar system – more than twice as massive as all the other planets combined.....
+                ......Jupiter's familiar stripes and swirls are actually cold, windy clouds of ammonia and water, floating in an atmosphere of hydrogen and helium. Jupiter’s iconic Great Red Spot is a giant storm bigger than Earth that has raged for hundreds of years.`;
+                let idx =1;
+                let speed = 45;
+                writeText()
+                speech()
+
+          function writeText() {
+             textTag.innerText = textCtnt.slice(0, idx)
+
+               idx++
+
+               
+            setTimeout(writeText, speed)
+   
+          }
+       
+                function speech(e){
+                    let button = document.querySelector("#btn")
+                const text_box =textCtnt
+                    const text= new SpeechSynthesisUtterance(text_box);
+                    speechSynthesis.speak(text);
+                    
+                }
+            </script>
+</body>
+</html>

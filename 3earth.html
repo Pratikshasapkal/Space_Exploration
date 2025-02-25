@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+          background: url(https://wallpapercave.com/wp/wp3493599.jpg);
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transform-style: preserve-3d;
+            box-shadow: 100px blue;
+            animation: scaleup 10s linear none;
+            
+        }
+        .planet{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 300px;
+            height: 300px;
+            background:url(https://1.bp.blogspot.com/-UUXaK5GCj-k/UcsKJRMgkVI/AAAAAAAACfM/sePP_H08JTQ/s1600/1.jpg);
+            border-radius: 50%;
+            background-size:cover;
+            background-repeat: repeat-x;
+            box-shadow: inset 50px 0 10px rgba(0, 0, 0, 0.87), 0 0 10px rgb(67, 156, 207);
+            animation: rotation 20s  linear infinite ;
+            
+            
+            
+            
+        }
+        @keyframes scaleup {
+            0%{
+                transform: scale(0.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+            
+        }
+        @keyframes rotation {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: -1280px 0;
+            }
+        }
+        div{ display:flex;
+            
+            flex-direction: column;
+            height: 50%;
+            width: 300px;
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            animation: opmy 2s linear none;
+             }
+             h1{
+                color: white;
+                text-shadow:2px 4px 7px rgb(252, 249, 249);
+                --glow-color : whitesmoke;
+                
+             }
+             p{
+                color:rgb(229, 252, 252);
+                text-shadow:2px 2px 10px black;
+                font-size: larger;
+             }
+             @keyframes opmy {
+            0%{
+                opacity: 0;
+                transform: translate(-20px,0px);
+            }100%{
+                opacity: 1;
+            }}
+            button{
+            height: 30px;
+            width: 80px;
+            color:cyan;
+            background-color: rgb(250, 248, 252);
+            border: 2px solid black;
+            border-radius: 20px;
+            text-shadow:0 0 10px black ;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: rgb(188, 183, 194);
+            transform: scale(1.1);
+            
+
+        }
+        button:active{
+            transform: scale(0.92);
+        }
+
+        @media screen and  (orientation: portrait){
+            .aboutPlanet{ 
+                display:flex;
+            
+            flex-direction: column;
+            height: 50%;
+            width: 90%;
+            position: absolute;
+            top: 1%;
+            left: 5%;
+            animation: opmy 2s linear none;
+
+            }
+            h1{
+                font-size: x-large;
+            }
+            p{
+                font-size: 15px;
+            }
+            .btn{
+                width: 10%;
+            }
+        }
+
+    </style>
+    <title>Earth</title>
+</head>
+<body>
+    <section>
+        <div class="planet"></div></section>
+        <div class="aboutPlanet"><h1>EARTH</h1><br>
+        <p id="textContent">
+
+            </p>
+            <button type="button" class="btn" id="btn" onclick="speech()"><img style="width: 30%;" class="speechbutton" src="https://cdn-icons-png.flaticon.com/512/26/26706.png" alt=""></button></div>
+           
+            <script>
+                  let textTag=document.getElementById("textContent");
+                let textCtnt =`Earth—our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.
+            While Earth is only the fifth largest planet in the solar system. Just slightly larger than nearby Venus, Earth is the biggest of the four planets closest to the Sun, all of which are made of rock and metal.`;
+                let idx =1;
+                let speed = 45;
+                writeText()
+                speech()
+
+          function writeText() {
+             textTag.innerText = textCtnt.slice(0, idx)
+
+               idx++
+
+               
+            setTimeout(writeText, speed)
+   
+          }
+       
+                function speech(e){
+                    let button = document.querySelector("#btn")
+                const text_box =textCtnt
+                    const text= new SpeechSynthesisUtterance(text_box);
+                    speechSynthesis.speak(text);
+                    
+                }
+            </script>
+</body>
+</html>

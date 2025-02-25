@@ -1,0 +1,43 @@
+body {
+	font-family: Arial, sans-serif;
+    background-color: black;
+    background-image: url(assets/simulationback.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header {
+	padding: 20px;
+	background-color: black;
+    box-shadow: 2px 3px 4px rgb(162, 161, 161);
+}
+
+#logo {
+	height: 50px;
+}
+
+img{
+    border: 2px solid white;
+	margin-left: 5px; margin-top: 17px;
+}
+
+.text-image-container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.text-image-container img {
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+}
+
+.text-image-container p {
+	margin: 0;
+    color: #f8f8f8;
+}
+h1
+{
+    color: #f8f8f8;
+}

@@ -1,0 +1,85 @@
+
+body
+{
+  background-image: url(assets/Backgroungimg.jpg);
+  background-size : cover;
+  background-attachment: fixed;
+}
+
+
+h1
+{
+  color: white;
+  margin-top: 350px;
+  margin-left: 55px;
+  font-family: garamond;
+  font-size: 60px;
+  text-shadow: 1px 1px 5px whitesmoke;
+  --glow-color : white;
+}
+
+
+
+pre
+{
+  color: whitesmoke;
+  margin-top: 80px;
+  font-family: Tahoma;
+  margin-left: 100px;
+}
+
+p
+{
+  margin-top: 200px;
+}
+
+#intro_button1
+{
+  --glow-color : rgb(117, 221, 253);
+  --glow-spread-color : rgb(21, 199, 253);
+  --enhanced-glow-color : rgb(178, 231, 247);
+  --btn-color : rgb(0, 124, 162);
+  border : 0.25em solid var(--glow-color);
+  padding: 1em 3em;
+  color : var(--glow-color);
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em 0.25em var(--glow-color), 0 0 4em 1em var(--glow-spread-color), inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  left: 22%;
+  top: 200%;
+}
+
+button::after
+{
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 20%;
+  bottom: 20%;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1,0.6);
+}
+
+#intro_button1:hover
+{
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em 0.25em var(--glow-color), 0 0 4em 2em var(--glow-spread-color), inset 0 0 0.75em 0.25em var(--glow-color);
+}
+
+#intro_button1:active
+{
+  box-shadow: 0 0 0.6em 0.25em var(--glow-color), 0 0 2.5em 2em var(--glow-spread-color), inset 0 0 9.5em 0.25em var(--glow-color);
+
+}

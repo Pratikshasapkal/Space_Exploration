@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+          background: url(https://wallpapercave.com/wp/wp3493599.jpg);
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transform-style: preserve-3d;
+            box-shadow: 100px blue;
+            animation: scaleup 10s linear none;
+            
+        }
+        .planet{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 300px;
+    background:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fdedbd0d-a698-4b53-af5d-26c4046fa564/dd1nipp-6e1f6a68-ad49-45bd-ba15-ba5f4cf681bc.png/v1/fill/w_1024,h_512,q_80,strp/cassini_saturn_map_by_astra_planetshine_dd1nipp-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvZmRlZGJkMGQtYTY5OC00YjUzLWFmNWQtMjZjNDA0NmZhNTY0XC9kZDFuaXBwLTZlMWY2YTY4LWFkNDktNDViZC1iYTE1LWJhNWY0Y2Y2ODFiYy5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.UetL7dKwwN35RyaQ0kZK9GACl5aemOSIve8b7Ly_o2E");
+    border-radius: 50%;
+    background-size:cover;
+    background-repeat: repeat-x;
+    box-shadow: inset 50px 0 10px rgba(0, 0, 0, 0.541), 0 0 30px rgb(255, 255, 255);
+    animation: rotation 15s  linear infinite ;}
+          
+            
+        
+        @keyframes scaleup {
+            0%{
+                transform: scale(0.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+            
+        }
+        @keyframes rotation {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: -1280px 0;
+            }
+        }
+        .aboutPlanet{ display:flex;
+            
+            flex-direction: column;
+            height: 50%;
+            width: 300px;
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            animation: opmy 2s linear none;
+             }
+             h1{
+                color: whitesmoke;
+                text-shadow:2px 2px 10px whitesmoke;
+             }
+             p{
+                color:white;
+                text-shadow:2px 2px 50px rgb(255, 255, 255);
+                font-size: larger;
+                --glow-color: white;
+             }
+             @keyframes opmy {
+            0%{
+                opacity: 0;
+                transform: translate(-20px,0px);
+            }100%{
+                opacity: 1;
+            }}
+            
+        
+        
+
+    button{
+            height: 30px;
+            width: 80px;
+            color:cyan;
+            background-color: gray;
+            border: 2px solid black;
+            border-radius: 20px;
+            text-shadow:0 0 10px black ;
+
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: blueviolet;
+            transform: scale(1.1);
+            
+
+        }
+        button:active{
+            transform: scale(0.92);
+        }
+        footer{
+            position:fixed;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content:center ;
+            align-items: baseline;
+            
+
+            
+        }@media screen and  (orientation: portrait){
+            .aboutPlanet{ 
+                display:flex;
+            
+            flex-direction: column;
+            height: 50%;
+            width: 90%;
+            position: absolute;
+            top: 1%;
+            left: 5%;
+            animation: opmy 2s linear none;
+
+            }
+            h1{
+                font-size: x-large;
+            }
+            p{
+                font-size: 15px;
+            }
+            .btn{
+                width: 10%;
+            }
+        }
+        
+        
+
+        
+
+    </style>
+    <title>saturn</title>
+</head>
+<body>
+    <section>
+        <div class="planet"></div>
+        </section>
+        <div class="aboutPlanet"><h1>SATURN</h1><br>
+            <p id="textContent">starting
+                
+            </p> 
+            <button type="button" class="btn" id="btn" onclick="speech()"><img style="width: 30%;" class="speechbutton"  src="https://cdn-icons-png.flaticon.com/512/26/26706.png" alt=""></button>
+        </div>
+        
+            <script>
+                let textTag=document.getElementById("textContent");
+                let textCtnt =`Saturn is the sixth planet from the Sun and the second-largest planet in our solar system....
+                ....Adorned with thousands of beautiful ringlets, Saturn is unique among the planets. It is not the only planet to have rings – made of chunks of ice and rock – but none are as spectacular or as complicated as Saturn's.
+                Like fellow gas giant Jupiter, Saturn is a massive ball made mostly of hydrogen and helium.`;
+                let idx =1;
+                let speed = 45;
+                writeText()
+
+          function writeText() {
+             textTag.innerText = textCtnt.slice(0, idx)
+
+               idx++
+
+               
+            setTimeout(writeText, speed)
+   
+          }
+
+               speech()
+       
+                function speech(e){
+                    let button = document.querySelector("#btn")
+                const text_box =textCtnt;
+                    const text= new SpeechSynthesisUtterance(text_box);
+                    speechSynthesis.speak(text);
+
+                     
+                   
+                }
+            </script>
+</body>
+</html>

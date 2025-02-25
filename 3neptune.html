@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+          background: url(https://wallpapercave.com/wp/wp3493599.jpg);
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transform-style: preserve-3d;
+            box-shadow: 100px whitesmoke;
+            animation: scaleup 10s linear none;
+            
+        }
+        .planet{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 300px;
+    background:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/efbcbef1-b203-4367-9335-2720d26f49ec/dewawlh-6be379ed-b087-4ea7-8715-709914cafe8b.png/v1/fill/w_1024,h_512,q_80,strp/don_davis_neptune_map_4k__fictional__by_mrspace43_celestia_dewawlh-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTEyIiwicGF0aCI6IlwvZlwvZWZiY2JlZjEtYjIwMy00MzY3LTkzMzUtMjcyMGQyNmY0OWVjXC9kZXdhd2xoLTZiZTM3OWVkLWIwODctNGVhNy04NzE1LTcwOTkxNGNhZmU4Yi5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.nz0dPK3TZiYgIyX0a4HwbEg16vN_bngJXmXfH3JkUb8");
+    border-radius: 50%;
+    background-size:cover;
+    background-repeat: repeat-x;
+    box-shadow: inset 50px 0 10px rgba(0, 0, 0, 0.541), 0 0 30px rgb(116, 212, 241);
+    animation: rotation 55s  linear infinite ;}
+          
+            
+        
+        @keyframes scaleup {
+            0%{
+                transform: scale(0.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+            
+        }
+        @keyframes rotation {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: -1280px 0;
+            }
+        }
+        div{ display:flex;
+            
+            flex-direction: column;
+            height: 50%;
+            width: 300px;
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            animation: opmy 2s linear none;
+             }
+             h1{
+                color: rgb(245, 245, 248);
+                text-shadow:2px 2px 5px rgb(255, 255, 255);
+                --glow-color : whitesmoke;
+             }
+             p{
+                color:rgb(250, 251, 252);
+                text-shadow:2px 2px 10px rgb(255, 254, 254);
+                font-size: larger;
+                
+             }
+             @keyframes opmy {
+            0%{
+                opacity: 0;
+                transform: translate(-20px,0px);
+            }100%{
+                opacity: 1;
+            }}
+            button{
+            height: 30px;
+            width: 80px;
+            color:cyan;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid black;
+            border-radius: 20px;
+            text-shadow:0 0 10px black ;
+
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: gray;
+            transform: scale(1.1);
+            
+
+        }
+        button:active{
+            transform: scale(0.92);
+        }
+        footer{
+            position:fixed;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content:center ;
+            align-items: center;
+            
+
+            
+        }
+        @media screen and  (orientation: portrait){
+            .aboutPlanet{ 
+                display:flex;
+            
+            flex-direction: column;
+            height: 50%;
+            width: 90%;
+            position: absolute;
+            top: 1%;
+            left: 5%;
+            animation: opmy 2s linear none;
+
+            }
+            h1{
+                font-size: x-large;
+            }
+            p{
+                font-size: 15px;
+            }
+            .btn{
+                width: 10%;
+            }
+        }
+
+    </style>
+    <title>Neptune</title>
+</head>
+<body>
+    <section>
+        <div class="planet"></div></section>
+        <div class="aboutPlanet"><h1>NEPTUNE</h1><br>
+            <p id="textContent">
+            </p>
+            <button type="button" class="btn" id="btn" onclick="speech()"><img style="width: 30%;" class="speechbutton" src="https://cdn-icons-png.flaticon.com/512/26/26706.png" alt=""></button></div>
+
+            <script>
+                  let textTag=document.getElementById("textContent");
+                let textCtnt =`Dark, cold, and whipped by supersonic winds, ice giant Neptune is the eighth and most distant planet in our solar system..... 
+                .......More than 30 times as far from the Sun as Earth, Neptune is the only planet in our solar system not visible to the naked eye ,and the first predicted by mathematics before its discovery. In 2011 Neptune completed its first 165-year orbit since its discovery in 1846.`;
+                let idx =1;
+                let speed = 45;
+                writeText()
+                speech()
+
+          function writeText() {
+             textTag.innerText = textCtnt.slice(0, idx)
+
+               idx++
+
+               
+            setTimeout(writeText, speed)
+   
+          }
+       
+                function speech(e){
+                    let button = document.querySelector("#btn")
+                const text_box =textCtnt
+                    const text= new SpeechSynthesisUtterance(text_box);
+                    speechSynthesis.speak(text);
+                    
+                }
+            </script>
+</body>
+</html>
